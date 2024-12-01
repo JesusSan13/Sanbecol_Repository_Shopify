@@ -1,0 +1,24 @@
+// {
+//     "name": Nombre de plantyilla,
+//     "layout": nombre del layout donde se muestra,
+//     "wrapper":disparador, donde se va acontener,[] son los atributos,
+//     "sections":{
+//         "template-404":{
+//             "type": "404_section"=> necesario para el id de sseccion
+//         }
+//     }, => ids de esccion
+//     "order": ["template-404"]
+// }
+
+
+{
+    "name": "Template 404",
+    "layout": "theme",
+    "wrapper":"div#404_template.custom-class[custom-attribute=hello]",
+    "sections":{
+        "template-404":{
+            "type": "template-404"
+        }
+    },
+    "order": ["template-404"]
+}

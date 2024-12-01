@@ -1,0 +1,67 @@
+
+{% comment %} DE ESTA FORMA SE ACCEDE AL LOCALES FICHERO {% endcomment %}
+{% comment %} <section x-data="{ isHovered: false }" class="relative w-full h-screen flex items-center justify-center bg-black text-white"> {% endcomment %}
+  <div class="flex flex-col items-center justify-center w-full h-screen space-y-6">
+    <!-- SVG de 404 -->
+    <div class="w-full max-w-md">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="400" height="300" class="w-96 h-96 mx-auto text-white z-10">
+        <circle cx="90" cy="100" r="55" stroke="white" stroke-width="6" fill="transparent" />
+        <text x="90" y="110" font-size="40" text-anchor="middle" fill="white" font-weight="bold">
+          {{ section.settings.title }}
+        </text>
+      </svg>
+    </div>
+    <!-- Segundo SVG -->
+    <div class="w-full max-w-md">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" height="50" class="w-full mx-auto text-white z-10">
+        <text x="60" y="75" font-size="45" text-anchor="middle" fill="white" font-weight="bold">
+          {{ section.settings.subtext_title }}
+        </text>
+      </svg>
+      {% if section.settings.button_url == blank %}
+        {% assign url_shop = shop.secure_url %}
+      {% else %}
+        {% assign url_shop = section.settings.button_url %}
+      {% endif %}
+      <div class="w-full max-w-md flex items-center justify-center">
+        <a class="text-xl px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black transition" href="{{ url_shop }}">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+  </div>
+  </div>
+  
+  {% comment %} </section> {% endcomment %}
+  {% schema %}
+{
+  "name": "Template 404",
+  "tag": "section",
+  "class": "relative w-full h-screen flex items-center justify-center bg-black text-white",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "404 Heading title",
+      "default": "404",
+    },
+    {
+      "type": "text",
+      "id": "subtext_title",
+      "label": "404 Subtext title",
+      "default": "La página no se encuentra",
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Back Home",
+    }
+    ,
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ]
+}
+{% endschema %}
