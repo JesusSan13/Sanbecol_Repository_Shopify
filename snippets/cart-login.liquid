@@ -1,18 +1,1 @@
-<!-- cart-login.liquid -->
-<div class="flex items-center space-x-4">
-  <!-- Enlace al carrito -->
-  <a href="{{ routes.cart_url }}" class="hover:text-gray-300 transition duration-300">
-    {% render 'icon-shopping-bag' %}
-  </a>
 
-  <!-- Login/Registro -->
-  {% if customer %}
-    <!-- Si el cliente está autenticado -->
-    <a href="/account" class="hover:text-gray-300 transition duration-300">Mi cuenta</a>
-    <a href="/account/logout" class="hover:text-gray-300 transition duration-300">Cerrar sesión</a>
-  {% else %}
-    <!-- Si el cliente no está autenticado -->
-    <a href="/account/login" class="hover:text-gray-300 transition duration-300">Iniciar sesión</a>
-    <a href="/account/register" class="hover:text-gray-300 transition duration-300">Registrarse</a>
-  {% endif %}
-</div>
